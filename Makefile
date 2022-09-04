@@ -6,7 +6,7 @@
 #    By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 07:56:24 by hkumagai          #+#    #+#              #
-#    Updated: 2022/09/01 08:16:16 by hkumagai         ###   ########.fr        #
+#    Updated: 2022/09/02 05:41:49 by hkumagai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBS = -lftprintf -lft
 
 SRCS_DIR := ./src
 SRCS_DIR/ := $(if $(SRCS_DIR),$(patsubst %//,%/,$(SRCS_DIR)/),)
-SRCS := $(addprefix $(SRCS_DIR/), main.c)
+SRCS := $(addprefix $(SRCS_DIR/), push_swap.c)
 
 OBJS_DIR := ./objs
 OBJS_DIR/ := $(if $(OBJS_DIR),$(patsubst %//,%/,$(OBJS_DIR)/),)
@@ -70,4 +70,7 @@ $(OBJS_DIR/).keep $(OUTPUT_DIR/).keep:
 	mkdir -p $(@D)
 	touch $@
 
-.PHONY: all clean fclean re
+test: all
+	@./${NAME}
+
+.PHONY: all clean fclean re test
