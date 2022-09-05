@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check_args.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 00:31:54 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/05 18:59:23 by hkumagai         ###   ########.fr       */
+/*   Created: 2022/09/05 05:09:46 by hkumagai          #+#    #+#             */
+/*   Updated: 2022/09/05 05:11:51 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-int	main(int argc, char const *argv[])
-{
-	if (!check_args(argc, argv))
-		return (false);
-	return (0);
-}
+#ifndef CHECK_ARGS_H
+# define CHECK_ARGS_H
+
+bool	check_args(int argc, char const *argv[]);
+#endif //

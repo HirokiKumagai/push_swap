@@ -6,7 +6,7 @@
 #    By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 07:56:24 by hkumagai          #+#    #+#              #
-#    Updated: 2022/09/02 05:41:49 by hkumagai         ###   ########.fr        #
+#    Updated: 2022/09/05 05:40:45 by hkumagai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 ARFLAGS := -rcs
 INCLUDE = -I./include
 LDFLAGS = -Llib/ft_printf -Llib/libft
@@ -22,7 +22,7 @@ LIBS = -lftprintf -lft
 
 SRCS_DIR := ./src
 SRCS_DIR/ := $(if $(SRCS_DIR),$(patsubst %//,%/,$(SRCS_DIR)/),)
-SRCS := $(addprefix $(SRCS_DIR/), push_swap.c)
+SRCS := $(addprefix $(SRCS_DIR/), push_swap.c check_args.c)
 
 OBJS_DIR := ./objs
 OBJS_DIR/ := $(if $(OBJS_DIR),$(patsubst %//,%/,$(OBJS_DIR)/),)
