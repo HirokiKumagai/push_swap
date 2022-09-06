@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 00:31:54 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/06 07:30:56 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/06 16:51:04 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,27 @@ void	ft_print_str(void *content)
 	ft_printf("%s\n", (char *)content);
 }
 
+int	**create_arr(int argc, const char *argv[])
+{
+	int	**arr;
+	int	size;
+
+	size = argc - 1;
+	arr = malloc(sizeof(int *) * size);
+	if (!arr)
+	{
+		ft_printf("Error\n");
+		exit(1);
+	}
+	arr = check_args(size, argv, arr);
+	if (!arr)
+	{
+		ft_printf("Error\n");
+		exit(1);
+	}
+	return (arr);
+}
+
 int	main(int argc, char const *argv[])
 {
 	int		**arr;
@@ -36,15 +57,9 @@ int	main(int argc, char const *argv[])
 
 	if (!is_no_args(argc))
 		return (false);
-	arr = malloc(sizeof(int *) * (argc - 1));
-	if (!arr)
-		return (0);
-	stack = create_stack(argc, argv, arr);
-	if (!stack)
-		return (0);
+	arr = create_arr(argc, argv);
+	stack = create_stack(argc, arr);
 	empty_stack = create_empty_stack(argc, stack, arr);
-	if (!empty_stack)
-		return (0);
 	ft_lstiter(stack[0], ft_print_int);
 	ft_lstiter(empty_stack[0], ft_print_str);
 	free_all_stack(empty_stack, argc - 1);
