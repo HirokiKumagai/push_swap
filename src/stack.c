@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 02:40:48 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/06 02:50:42 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/06 07:29:49 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,36 @@ t_list	**create_stack(int argc, const char *argv[], int **arr)
 	stack = store_stack(size, stack, arr);
 	if (!stack)
 		return (NULL);
+	return (stack);
+}
+
+t_list	**create_empty_stack(int argc, t_list **stack_a, int **arr)
+{
+	t_list	**stack;
+	int		size;
+	int		i;
+
+	size = argc - 1;
+	stack = malloc(sizeof(t_list *) * size);
+	if (!stack)
+	{
+		free_all_stack(stack_a, argc - 1);
+		free_all_arr(arr, argc - 1);
+		return (NULL);
+	}
+	i = 0;
+	while (i < size)
+	{
+		stack[i] = ft_lstnew(NULL);
+		if (!stack[i])
+		{
+			free_all_stack(stack_a, i);
+			free_all_arr(arr, size);
+			return (NULL);
+		}
+		if (i > 0)
+			ft_lstadd_back(&stack[i - 1], stack[i]);
+		i++;
+	}
 	return (stack);
 }
