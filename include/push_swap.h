@@ -5,6 +5,7 @@
 # include "./free.h"
 # include "./check_args.h"
 # include "./stack.h"
+# include "./command.h"
 
 typedef struct s_data{
 	int				num;
