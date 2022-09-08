@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 02:09:13 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/06 02:13:50 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/08 04:12:10 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,17 @@ void	free_all_arr(int **arr, int count)
 	free(arr);
 }
 
-void	free_all_stack(t_list **stack, int count)
+void	free_all_stack(t_list **stack)
 {
-	int	i;
+	t_list	*tmp;
+	t_list	*new_stack;
 
-	i = 0;
-	while (i < count)
+	new_stack = *stack;
+	while (new_stack)
 	{
-		free(stack[i]);
-		i++;
+		tmp = new_stack->next;
+		free(new_stack);
+		new_stack = tmp;
 	}
 	free(stack);
 }

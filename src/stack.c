@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 02:40:48 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/06 16:54:11 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/08 04:16:57 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_list	**init_empty_stack(int size, t_list **stack_a, int **arr)
 	stack = malloc(sizeof(t_list *) * size);
 	if (!stack)
 	{
-		free_all_stack(stack_a, size);
+		free_all_stack(stack_a);
 		free_all_arr(arr, size);
 		exit(1);
 	}
@@ -43,20 +43,23 @@ static t_list	**init_empty_stack(int size, t_list **stack_a, int **arr)
 
 static t_list	**store_stack(int size, t_list **stack, int **arr)
 {
-	int	i;
+	int		i;
+	t_list	*tmp;
 
 	i = 0;
 	while (i < size)
 	{
-		stack[i] = ft_lstnew(arr[i]);
-		if (!stack[i])
+		tmp = ft_lstnew(arr[i]);
+		if (!tmp)
 		{
-			free_all_stack(stack, i);
+			free_all_stack(stack);
 			free_all_arr(arr, size);
 			exit(1);
 		}
+		if (i == 0)
+			*stack = tmp;
 		if (i > 0)
-			ft_lstadd_back(&stack[i - 1], stack[i]);
+			ft_lstadd_back(stack, tmp);
 		i++;
 	}
 	return (stack);
@@ -90,22 +93,24 @@ t_list	**create_empty_stack(int argc, t_list **stack_a, int **arr)
 	t_list	**stack;
 	int		size;
 	int		i;
+	t_list	*tmp;
 
 	size = argc - 1;
 	stack = init_empty_stack(size, stack_a, arr);
 	i = 0;
 	while (i < size)
 	{
-		stack[i] = ft_lstnew(NULL);
-		if (!stack[i])
+		tmp = ft_lstnew(NULL);
+		if (!tmp)
 		{
-			free_all_stack(stack_a, i);
+			free_all_stack(stack);
 			free_all_arr(arr, size);
-			ft_printf("Error");
 			exit(1);
 		}
+		if (i == 0)
+			*stack = tmp;
 		if (i > 0)
-			ft_lstadd_back(&stack[i - 1], stack[i]);
+			ft_lstadd_back(stack, tmp);
 		i++;
 	}
 	return (stack);
