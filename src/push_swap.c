@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 00:31:54 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/08 04:19:23 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/08 06:34:35 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ int	main(int argc, char const *argv[])
 	stack = create_stack(argc, arr);
 	stack_b = create_empty_stack(argc, stack, arr);
 	ft_lstiter(*stack, ft_print_int);
-	ft_lstiter(*stack_b, ft_print_str);
+	// ft_lstiter(*stack_b, ft_print_str);
 	// ft_printf("stack_address:	%p\n", *stack);
-	// sa(stack);
+	sa(stack);
 	// ft_printf("stack_address:	%p\n", *stack);
 	// ft_printf("stack_address:	%p\n", (*stack)->next);
 	// ft_printf("stack_address:	%p\n", (*stack)->next->next);
-	// ft_lstiter(*stack, ft_print_int);
+	ft_lstiter(*stack, ft_print_int);
 	free_all_stack(stack_b);
 	free_all_stack(stack);
 	free_all_arr(arr, argc - 1);

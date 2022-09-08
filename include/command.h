@@ -6,11 +6,11 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 17:01:27 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/07 13:48:53 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/08 12:17:19 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COMMAND_H
 # define COMMAND_H
-void	sa(t_list **stack_a);
+bool	sa(t_list **stack_a);
 #endif
