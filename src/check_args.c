@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 02:26:27 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/06 02:52:27 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/07 03:24:43 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,9 @@ static bool	is_invalid_num(char *str)
 			continue ;
 		}
 		if (sign_count > 1)
-		{
-			ft_printf("ERROR:	Invalid Args\n");
 			return (false);
-		}
 		if (ft_isdigit(*str) == false)
-		{
-			ft_printf("ERROR:	Invalid Args\n");
 			return (false);
-		}
 		str++;
 	}
 	return (true);
