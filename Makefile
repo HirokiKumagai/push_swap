@@ -6,7 +6,7 @@
 #    By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 07:56:24 by hkumagai          #+#    #+#              #
-#    Updated: 2022/09/07 05:21:59 by hkumagai         ###   ########.fr        #
+#    Updated: 2022/09/08 12:50:06 by hkumagai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS := $(addprefix $(SRCS_DIR/), push_swap.c free.c check_args.c stack.c)
 
 COMMAND_SRCS_DIR := ./src/command
 COMMAND_SRCS_DIR/ := $(if $(COMMAND_SRCS_DIR),$(patsubst %//,%/,$(COMMAND_SRCS_DIR)/),)
-COMMAND_SRCS := $(addprefix $(COMMAND_SRCS_DIR/),sa.c)
+COMMAND_SRCS := $(addprefix $(COMMAND_SRCS_DIR/),sa.c sb.c ss.c pa.c pb.c)
 
 OBJS_DIR := ./objs
 OBJS_DIR/ := $(if $(OBJS_DIR),$(patsubst %//,%/,$(OBJS_DIR)/),)
