@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 02:40:48 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/08 04:16:57 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/09 06:54:43 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_list	**init_stack(int argc, int **arr)
 	t_list	**stack;
 
 	size = argc - 1;
-	stack = malloc(sizeof(t_list *) * size);
+	stack = malloc(sizeof(t_list *));
 	if (!stack)
 	{
 		free_all_arr(arr, size);
@@ -31,7 +31,7 @@ static t_list	**init_empty_stack(int size, t_list **stack_a, int **arr)
 {
 	t_list	**stack;
 
-	stack = malloc(sizeof(t_list *) * size);
+	stack = malloc(sizeof(t_list *));
 	if (!stack)
 	{
 		free_all_stack(stack_a);
