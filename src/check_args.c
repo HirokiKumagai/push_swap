@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 02:26:27 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/07 03:24:43 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/09 17:40:15 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 static bool	is_invalid_num(char *str)
 {
 	int	sign_count;
+	int	status;
 
 	sign_count = 0;
+	status = 0;
 	while (*str)
 	{
+		if (*str == '-' && status > 0)
+			return (false);
 		if (*str == '-')
 		{
 			sign_count++;
@@ -28,6 +32,8 @@ static bool	is_invalid_num(char *str)
 			return (false);
 		if (ft_isdigit(*str) == false)
 			return (false);
+		else
+			status++;
 		str++;
 	}
 	return (true);
