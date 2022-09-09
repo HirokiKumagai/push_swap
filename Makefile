@@ -6,7 +6,7 @@
 #    By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 07:56:24 by hkumagai          #+#    #+#              #
-#    Updated: 2022/09/08 14:01:19 by hkumagai         ###   ########.fr        #
+#    Updated: 2022/09/09 16:25:59 by hkumagai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBS = -lftprintf -lft
 
 SRCS_DIR := ./src
 SRCS_DIR/ := $(if $(SRCS_DIR),$(patsubst %//,%/,$(SRCS_DIR)/),)
-SRCS := $(addprefix $(SRCS_DIR/), push_swap.c free.c check_args.c stack.c)
+SRCS := $(addprefix $(SRCS_DIR/), push_swap.c free.c check_args.c stack.c sort.c)
 
 COMMAND_SRCS_DIR := ./src/command
 COMMAND_SRCS_DIR/ := $(if $(COMMAND_SRCS_DIR),$(patsubst %//,%/,$(COMMAND_SRCS_DIR)/),)

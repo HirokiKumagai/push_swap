@@ -6,6 +6,7 @@
 # include "./check_args.h"
 # include "./stack.h"
 # include "./command.h"
+# include "./sort.h"
 
 typedef struct s_data{
 	int				num;

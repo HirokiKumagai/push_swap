@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 00:31:54 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/08 06:34:35 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/09 16:24:33 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,35 @@ int	**create_arr(int argc, const char *argv[])
 int	main(int argc, char const *argv[])
 {
 	int		**arr;
-	t_list	**stack;
+	t_list	**stack_a;
 	t_list	**stack_b;
 
 	if (!is_no_args(argc))
 		return (false);
 	arr = create_arr(argc, argv);
-	stack = create_stack(argc, arr);
-	stack_b = create_empty_stack(argc, stack, arr);
-	ft_lstiter(*stack, ft_print_int);
-	// ft_lstiter(*stack_b, ft_print_str);
+	stack_a = create_stack(argc, arr);
+	stack_b = create_stack(argc, arr);
+	// stack_b = create_empty_stack(argc, stack_a, arr);
+	start_sort(argc, stack_a, stack_b);
+	ft_printf("before:	stack_ab\n");
+	ft_lstiter(*stack_a, ft_print_int);
+	ft_printf("------------\n");
+	ft_lstiter(*stack_b, ft_print_int);
 	// ft_printf("stack_address:	%p\n", *stack);
-	sa(stack);
+	// ss(stack_a, stack_b);
+	// pa(stack_a, stack_b);
+	rrr(stack_a, stack_b);
+	// rr(stack_a, stack_b);
+	// rr(stack_a, stack_b);
 	// ft_printf("stack_address:	%p\n", *stack);
 	// ft_printf("stack_address:	%p\n", (*stack)->next);
 	// ft_printf("stack_address:	%p\n", (*stack)->next->next);
-	ft_lstiter(*stack, ft_print_int);
+	ft_printf("after:	stack_ab\n");
+	ft_lstiter(*stack_a, ft_print_int);
+	ft_printf("------------\n");
+	ft_lstiter(*stack_b, ft_print_int);
 	free_all_stack(stack_b);
-	free_all_stack(stack);
+	free_all_stack(stack_a);
 	free_all_arr(arr, argc - 1);
 	return (0);
 }
