@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 00:31:54 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/13 07:33:49 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/13 07:40:19 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int	main(int argc, char const *argv[])
 	// pb(stack_a, stack_b);
 	// pb(stack_a, stack_b);
 	// ra(stack_a);
+	// ra(stack_a);
+	// rra(stack_a);
 	// ra(stack_a);
 	ft_printf("----------command:	end----------\n");
 	ft_printf("----------after:	stack_ab----------\n");
