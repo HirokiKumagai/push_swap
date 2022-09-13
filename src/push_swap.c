@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 00:31:54 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/13 07:45:53 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/13 07:51:12 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int argc, char const *argv[])
 	ft_printf("----------after:	stack_b----------\n");
 	ft_lstiter(*stack_b, ft_print_int);
 	ft_printf("----------command:	start----------\n");
-	// start_sort(argc, stack_a, stack_b);
+	start_sort(argc, stack_a, stack_b);
 	// pb(stack_a, stack_b);
 	// pb(stack_a, stack_b);
 	// pb(stack_a, stack_b);
@@ -77,7 +77,7 @@ int	main(int argc, char const *argv[])
 	// ra(stack_a);
 	// rra(stack_a);
 	// ra(stack_a);
-	sa(stack_a);
+	// sa(stack_a);
 	// ra(stack_a);
 	ft_printf("----------command:	end----------\n");
 	ft_printf("----------after:	stack_ab----------\n");
