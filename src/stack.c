@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 02:40:48 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/09 06:54:43 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/13 07:26:01 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,26 +92,8 @@ t_list	**create_empty_stack(int argc, t_list **stack_a, int **arr)
 {
 	t_list	**stack;
 	int		size;
-	int		i;
-	t_list	*tmp;
 
 	size = argc - 1;
 	stack = init_empty_stack(size, stack_a, arr);
-	i = 0;
-	while (i < size)
-	{
-		tmp = ft_lstnew(NULL);
-		if (!tmp)
-		{
-			free_all_stack(stack);
-			free_all_arr(arr, size);
-			exit(1);
-		}
-		if (i == 0)
-			*stack = tmp;
-		if (i > 0)
-			ft_lstadd_back(stack, tmp);
-		i++;
-	}
 	return (stack);
 }
