@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 00:31:54 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/10 06:07:41 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/13 07:25:37 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ static bool	is_no_args(int argc)
 
 void	ft_print_int(void *content)
 {
-	ft_printf("%d\n", *(int *)content);
+	if (content)
+		ft_printf("%d\n", *(int *)content);
+	else
+		ft_printf("null\n");
 }
 
 void	ft_print_str(void *content)
@@ -61,10 +64,21 @@ int	main(int argc, char const *argv[])
 	stack_a = create_stack(argc, arr);
 	stack_b = create_empty_stack(argc, stack_a, arr);
 	ft_printf("----------before:	stack_ab----------\n");
+	ft_printf("----------after:	stack_a----------\n");
 	ft_lstiter(*stack_a, ft_print_int);
+	ft_printf("----------after:	stack_b----------\n");
+	ft_lstiter(*stack_b, ft_print_int);
+	ft_printf("----------command:	start----------\n");
 	start_sort(argc, stack_a, stack_b);
+	// pb(stack_a, stack_b);
+	// pb(stack_a, stack_b);
+	// pb(stack_a, stack_b);
+	ft_printf("----------command:	end----------\n");
 	ft_printf("----------after:	stack_ab----------\n");
+	ft_printf("----------after:	stack_a----------\n");
 	ft_lstiter(*stack_a, ft_print_int);
+	ft_printf("----------after:	stack_b----------\n");
+	ft_lstiter(*stack_b, ft_print_int);
 	free_all_stack(stack_b);
 	free_all_stack(stack_a);
 	free_all_arr(arr, argc - 1);
