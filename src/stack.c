@@ -6,15 +6,15 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 02:40:48 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/13 07:26:01 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/14 08:05:01 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 static t_list	**init_stack(int argc, int **arr)
 {
-	int		size;
 	t_list	**stack;
+	size_t	size;
 
 	size = argc - 1;
 	stack = malloc(sizeof(t_list *));
@@ -27,7 +27,7 @@ static t_list	**init_stack(int argc, int **arr)
 	return (stack);
 }
 
-static t_list	**init_empty_stack(int size, t_list **stack_a, int **arr)
+static t_list	**init_empty_stack(int size, int **arr, t_list **stack_a)
 {
 	t_list	**stack;
 
@@ -72,28 +72,16 @@ t_list	**create_stack(int argc, int **arr)
 
 	size = argc - 1;
 	stack = init_stack(argc, arr);
-	if (!stack)
-	{
-		free_all_arr(arr, size);
-		ft_printf("Error\n");
-		exit(1);
-	}
 	stack = store_stack(size, stack, arr);
-	if (!stack)
-	{
-		free_all_arr(arr, size);
-		ft_printf("Error\n");
-		exit(1);
-	}
 	return (stack);
 }
 
-t_list	**create_empty_stack(int argc, t_list **stack_a, int **arr)
+t_list	**create_empty_stack(int argc, int **arr, t_list **stack_a)
 {
 	t_list	**stack;
 	int		size;
 
 	size = argc - 1;
-	stack = init_empty_stack(size, stack_a, arr);
+	stack = init_empty_stack(size, arr, stack_a);
 	return (stack);
 }
