@@ -6,7 +6,7 @@
 /*   By: hkumagai <hkumagai@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 00:31:54 by hkumagai          #+#    #+#             */
-/*   Updated: 2022/09/13 07:51:12 by hkumagai         ###   ########.fr       */
+/*   Updated: 2022/09/14 08:24:58 by hkumagai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,21 @@ int	main(int argc, char const *argv[])
 	int		**arr;
 	t_list	**stack_a;
 	t_list	**stack_b;
+	t_list	**sorted_lst;
 
 	if (!is_no_args(argc))
 		return (false);
 	arr = create_arr(argc, argv);
 	stack_a = create_stack(argc, arr);
-	stack_b = create_empty_stack(argc, stack_a, arr);
+	stack_b = create_empty_stack(argc, arr, stack_a);
+	sorted_lst = create_sorted_lst(argc, arr, stack_a, stack_b);
 	ft_printf("----------before:	stack_ab----------\n");
 	ft_printf("----------after:	stack_a----------\n");
 	ft_lstiter(*stack_a, ft_print_int);
 	ft_printf("----------after:	stack_b----------\n");
 	ft_lstiter(*stack_b, ft_print_int);
 	ft_printf("----------command:	start----------\n");
-	start_sort(argc, stack_a, stack_b);
+	// start_sort(argc, stack_a, stack_b);
 	// pb(stack_a, stack_b);
 	// pb(stack_a, stack_b);
 	// pb(stack_a, stack_b);
@@ -87,6 +89,7 @@ int	main(int argc, char const *argv[])
 	ft_lstiter(*stack_b, ft_print_int);
 	free_all_stack(stack_b);
 	free_all_stack(stack_a);
+	free_all_stack(sorted_lst);
 	free_all_arr(arr, argc - 1);
 	return (0);
 }

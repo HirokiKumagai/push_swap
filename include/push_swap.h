@@ -7,6 +7,7 @@
 # include "./stack.h"
 # include "./command.h"
 # include "./sort.h"
+# include "./merge_sort.h"
 
 typedef struct s_data{
 	int				num;
